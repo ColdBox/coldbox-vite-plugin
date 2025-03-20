@@ -418,7 +418,7 @@ describe("inertia-helpers", () => {
     it("pass globEager value to resolvePageComponent", async () => {
         const file = await resolvePageComponent<{ default: string }>(
             path,
-            import.meta.globEager("./__data__/*.ts")
+            import.meta.glob("./__data__/*.ts", { eager: true })
         );
         expect(file.default).toBe("Dummy File");
     });
