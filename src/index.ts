@@ -200,15 +200,17 @@ function resolveColdBoxPlugin(
                 return;
             }
 
-            const clean = () => {
+            const clean = (code: number | null) => {
                 if (fs.existsSync(hotFile)) {
                     fs.rmSync(hotFile);
                 }
+                process.exit(code ?? 0);
             };
 
-            process.on("exit", clean);
-            process.on("SIGINT", process.exit);
-            process.on("SIGTERM", process.exit);
+            process.on('exit', (code) => clean(code))
+            // callback value is signal string, exit with 0
+            process.on('SIGINT', () => clean(0))
+            process.on('SIGTERM', () => clean(0))
             process.on("SIGHUP", process.exit);
 
             exitHandlersBound = true;
