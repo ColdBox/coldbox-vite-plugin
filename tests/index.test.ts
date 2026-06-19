@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import coldbox from "../src";
+import coldbox, { refreshPaths, appRefreshPaths } from "../src";
 import { resolvePageComponent } from "../src/inertia-helpers";
 
 describe("coldbox-vite-plugin", () => {
@@ -402,6 +402,53 @@ describe("coldbox-vite-plugin", () => {
             paths: ["another/to/watch/**"],
             config: { delay: 123 },
         });
+    });
+
+    it("exports refreshPaths for flat layout", () => {
+        expect(refreshPaths).toEqual([
+            "layouts/**",
+            "views/**",
+            "config/Router.cfc",
+        ]);
+    });
+
+    it("exports appRefreshPaths for BoxLang / tiered layout", () => {
+        expect(appRefreshPaths).toEqual([
+            "app/layouts/**",
+            "app/views/**",
+            "app/config/Router.bx",
+        ]);
+    });
+
+    it("configures full reload with appRefreshPaths for BoxLang layout", () => {
+        const plugins = coldbox({
+            input: "resources/assets/js/app.js",
+            refresh: appRefreshPaths,
+        });
+
+        expect(plugins.length).toBe(2);
+        /** @ts-ignore */
+        expect(plugins[1].__coldbox_plugin_config).toEqual({
+            paths: appRefreshPaths,
+        });
+    });
+
+    it("supports BoxLang / tiered layout with public/includes publicDirectory", () => {
+        const plugin = coldbox({
+            input: "resources/assets/js/app.js",
+            publicDirectory: "public/includes",
+        })[0];
+
+        const config = plugin.config(
+            {},
+            { command: "build", mode: "production" }
+        );
+        expect(config.base).toBe("/build/");
+        expect(config.build.manifest).toBe(true);
+        expect(config.build.outDir).toBe("public/includes/build");
+        expect(config.build.rollupOptions.input).toBe(
+            "resources/assets/js/app.js"
+        );
     });
 });
 

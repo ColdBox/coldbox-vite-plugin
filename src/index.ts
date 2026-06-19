@@ -8,12 +8,31 @@ import {
     loadEnv,
     UserConfig,
     ConfigEnv,
-    Manifest,
     ResolvedConfig,
     SSROptions,
     normalizePath,
     PluginOption,
 } from "vite";
+
+type ManifestEntry = {
+    file: string;
+    src?: string;
+    isEntry?: boolean;
+    imports?: string[];
+    css?: string[];
+};
+type Manifest = Record<string, ManifestEntry>;
+
+/** Vite augments Rollup's OutputChunk with importedCss metadata. */
+interface ViteChunk {
+    isEntry: boolean;
+    facadeModuleId: string | null;
+    fileName: string;
+    viteMetadata?: {
+        importedCss: Set<string>;
+    };
+}
+
 import fullReload, {
     Config as FullReloadConfig,
 } from "vite-plugin-full-reload";
@@ -75,7 +94,15 @@ type DevServerUrl = `${"http" | "https"}://${string}:${number}`;
 
 let exitHandlersBound = false;
 
+/** Refresh paths for the flat ColdBox layout (web root = project root). */
 export const refreshPaths = ["layouts/**", "views/**", "config/Router.cfc"];
+
+/** Refresh paths for the BoxLang / tiered ColdBox layout (app/ sub-directory). */
+export const appRefreshPaths = [
+    "app/layouts/**",
+    "app/views/**",
+    "app/config/Router.bx",
+];
 
 /**
  * ColdBox plugin for Vite.
@@ -247,7 +274,7 @@ function resolveColdBoxPlugin(
 
         // The following two hooks are a workaround to help solve a "flash of unstyled content".
         // They add any CSS entry points into the manifest because Vite does not currently do this.
-        renderChunk(_, chunk : any) {
+        renderChunk(_, chunk: ViteChunk) {
             const cssLangs = `\\.(css|less|sass|scss|styl|stylus|pcss|postcss)($|\\?)`;
             const cssLangRE = new RegExp(cssLangs);
 
@@ -267,7 +294,7 @@ function resolveColdBoxPlugin(
                 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
                 /* @ts-ignore */
                 file:
-                    Array.from(chunk.viteMetadata.importedCss)[0] ??
+                    Array.from(chunk.viteMetadata?.importedCss ?? [])[0] ??
                     chunk.fileName,
                 src: relativeChunkPath,
                 isEntry: true,
@@ -431,7 +458,12 @@ function resolveOutDir(
 }
 
 /**
- * Resolve the Vite manifest config from the configuration.
+ * Resolve the Vite manifest path from the resolved config.
+ *
+ * Vite 5+ writes the manifest to `.vite/manifest.json` when `manifest: true`,
+ * but Vite resolves the boolean to the actual filename before storing it in
+ * `resolvedConfig`. Reading from `resolvedConfig` gives us the correct path
+ * across all supported Vite versions.
  */
 function resolveManifestConfig(config: ResolvedConfig): string | false {
     const manifestConfig = config.build.ssr
@@ -442,8 +474,10 @@ function resolveManifestConfig(config: ResolvedConfig): string | false {
         return false;
     }
 
+    // Vite resolves `true` to the actual filename in resolvedConfig.
+    // Fall back to sensible defaults only when it is still a boolean (older Vite).
     if (manifestConfig === true) {
-        return config.build.ssr ? "ssr-manifest.json" : "manifest.json";
+        return config.build.ssr ? ".vite/ssr-manifest.json" : ".vite/manifest.json";
     }
 
     return manifestConfig;
