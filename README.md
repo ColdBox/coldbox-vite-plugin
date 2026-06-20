@@ -24,7 +24,7 @@ The CFML/BoxLang side of the integration is provided by the [**coldbox-vite** Co
 
 | Dependency | Version |
 |---|---|
-| Node.js | ≥ 18 (≥ 20.19 when using Vite 8) |
+| Node.js | ≥ 20.19 |
 | Vite | 3, 4, 5, 6, 7, or 8 |
 
 ---
