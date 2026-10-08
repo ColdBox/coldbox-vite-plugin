@@ -387,6 +387,12 @@ See [UPGRADE.md](UPGRADE.md) for migration instructions from ColdBox Elixir.
 
 ---
 
+## Packaging
+
+`npm pack` and `npm publish` run `prepack`, which builds the plugin and Inertia helpers before creating the archive. Generated files remain Git-ignored.
+
+Run `npm run test:package` to pack a clean source tree, check every exported file and the development-server template, and install the tarball with lifecycle scripts disabled. The check loads the ESM, CommonJS, and Inertia entry points as a consumer would.
+
 ## Contributing
 
 Thank you for considering contributing to the ColdBox Vite plugin! Please open issues and pull requests on [GitHub](https://github.com/ColdBox/coldbox-vite-plugin).

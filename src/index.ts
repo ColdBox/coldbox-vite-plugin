@@ -37,8 +37,8 @@ import fullReload, {
     Config as FullReloadConfig,
 } from "vite-plugin-full-reload";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const pluginFilename = fileURLToPath(import.meta.url);
+const pluginDirectory = path.dirname(pluginFilename);
 
 interface PluginConfig {
     /**
@@ -195,7 +195,7 @@ function resolveColdBoxPlugin(
         configureServer(server) {
             const hotFile = path.join(pluginConfig.publicDirectory, "hot");
 
-            const pluginVersion = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../package.json")).toString()).version;
+            const pluginVersion = JSON.parse(fs.readFileSync(path.resolve(pluginDirectory, "../package.json")).toString()).version;
 
             server.httpServer?.once("listening", () => {
                 const address = server.httpServer?.address();
@@ -260,7 +260,7 @@ function resolveColdBoxPlugin(
                             fs
                                 .readFileSync(
                                     path.join(
-                                        __dirname,
+                                        pluginDirectory,
                                         "dev-server-index.html"
                                     )
                                 )

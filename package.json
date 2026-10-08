@@ -1,6 +1,6 @@
 {
     "name": "coldbox-vite-plugin",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "ColdBox plugin for Vite.",
     "type": "module",
     "keywords": [
@@ -40,7 +40,9 @@
         "build-plugin-esm": "esbuild src/index.ts --platform=node --format=esm --outfile=dist/index.mjs",
         "build-inertia-helpers": "rm -rf inertia-helpers && tsc --project tsconfig.inertia-helpers.json",
         "lint": "eslint src tests",
-        "test": "vitest run"
+        "test": "vitest run",
+        "prepack": "npm run build",
+        "test:package": "node scripts/verify-package.mjs"
     },
     "devDependencies": {
         "@types/node": "^22.13.10",

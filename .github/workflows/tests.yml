@@ -34,3 +34,6 @@ jobs:
 
       - name: Run build
         run: npm run build
+
+      - name: Verify npm package from a clean source tree
+        run: npm run test:package
