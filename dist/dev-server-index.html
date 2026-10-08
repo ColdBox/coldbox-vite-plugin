@@ -1,0 +1,664 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>ColdBox Vite</title>
+
+        <!-- Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Styles -->
+        <style>
+            body {
+                font-family: "Nunito", sans-serif;
+            }
+        </style>
+        <style>
+            /* ! tailwindcss v3.1.4 | MIT License | https://tailwindcss.com */
+            *,
+            :before,
+            :after {
+                box-sizing: border-box;
+                border-width: 0;
+                border-style: solid;
+                border-color: #edf2f7;
+            }
+            :before,
+            :after {
+                --tw-content: "";
+            }
+            html {
+                line-height: 1.5;
+                -webkit-text-size-adjust: 100%;
+                -moz-tab-size: 4;
+                tab-size: 4;
+                font-family: ui-sans-serif, system-ui, -apple-system,
+                    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                    Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+                    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+            body {
+                margin: 0;
+                line-height: inherit;
+            }
+            hr {
+                height: 0;
+                color: inherit;
+                border-top-width: 1px;
+            }
+            abbr:where([title]) {
+                -webkit-text-decoration: underline dotted;
+                text-decoration: underline dotted;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-size: inherit;
+                font-weight: inherit;
+            }
+            a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+            b,
+            strong {
+                font-weight: bolder;
+            }
+            code,
+            kbd,
+            samp,
+            pre {
+                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+                    Consolas, "Liberation Mono", "Courier New", monospace;
+                font-size: 1em;
+            }
+            small {
+                font-size: 80%;
+            }
+            sub,
+            sup {
+                font-size: 75%;
+                line-height: 0;
+                position: relative;
+                vertical-align: baseline;
+            }
+            sub {
+                bottom: -0.25em;
+            }
+            sup {
+                top: -0.5em;
+            }
+            table {
+                text-indent: 0;
+                border-color: inherit;
+                border-collapse: collapse;
+            }
+            button,
+            input,
+            optgroup,
+            select,
+            textarea {
+                font-family: inherit;
+                font-size: 100%;
+                font-weight: inherit;
+                line-height: inherit;
+                color: inherit;
+                margin: 0;
+                padding: 0;
+            }
+            button,
+            select {
+                text-transform: none;
+            }
+            button,
+            [type="button"],
+            [type="reset"],
+            [type="submit"] {
+                -webkit-appearance: button;
+                background-color: transparent;
+                background-image: none;
+            }
+            :-moz-focusring {
+                outline: auto;
+            }
+            :-moz-ui-invalid {
+                box-shadow: none;
+            }
+            progress {
+                vertical-align: baseline;
+            }
+            ::-webkit-inner-spin-button,
+            ::-webkit-outer-spin-button {
+                height: auto;
+            }
+            [type="search"] {
+                -webkit-appearance: textfield;
+                outline-offset: -2px;
+            }
+            ::-webkit-search-decoration {
+                -webkit-appearance: none;
+            }
+            ::-webkit-file-upload-button {
+                -webkit-appearance: button;
+                font: inherit;
+            }
+            summary {
+                display: list-item;
+            }
+            blockquote,
+            dl,
+            dd,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            hr,
+            figure,
+            p,
+            pre {
+                margin: 0;
+            }
+            fieldset {
+                margin: 0;
+                padding: 0;
+            }
+            legend {
+                padding: 0;
+            }
+            ol,
+            ul,
+            menu {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            textarea {
+                resize: vertical;
+            }
+            input::placeholder,
+            textarea::placeholder {
+                opacity: 1;
+                color: #cbd5e0;
+            }
+            button,
+            [role="button"] {
+                cursor: pointer;
+            }
+            :disabled {
+                cursor: default;
+            }
+            img,
+            svg,
+            video,
+            canvas,
+            audio,
+            iframe,
+            embed,
+            object {
+                display: block;
+                vertical-align: middle;
+            }
+            img,
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+            *,
+            :before,
+            :after {
+                --tw-border-spacing-x: 0;
+                --tw-border-spacing-y: 0;
+                --tw-translate-x: 0;
+                --tw-translate-y: 0;
+                --tw-rotate: 0;
+                --tw-skew-x: 0;
+                --tw-skew-y: 0;
+                --tw-scale-x: 1;
+                --tw-scale-y: 1;
+                --tw-pan-x: ;
+                --tw-pan-y: ;
+                --tw-pinch-zoom: ;
+                --tw-scroll-snap-strictness: proximity;
+                --tw-ordinal: ;
+                --tw-slashed-zero: ;
+                --tw-numeric-figure: ;
+                --tw-numeric-spacing: ;
+                --tw-numeric-fraction: ;
+                --tw-ring-inset: ;
+                --tw-ring-offset-width: 0px;
+                --tw-ring-offset-color: #fff;
+                --tw-ring-color: rgb(59 130 246/0.5);
+                --tw-ring-offset-shadow: 0 0 #0000;
+                --tw-ring-shadow: 0 0 #0000;
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                --tw-blur: ;
+                --tw-brightness: ;
+                --tw-contrast: ;
+                --tw-grayscale: ;
+                --tw-hue-rotate: ;
+                --tw-invert: ;
+                --tw-saturate: ;
+                --tw-sepia: ;
+                --tw-drop-shadow: ;
+                --tw-backdrop-blur: ;
+                --tw-backdrop-brightness: ;
+                --tw-backdrop-contrast: ;
+                --tw-backdrop-grayscale: ;
+                --tw-backdrop-hue-rotate: ;
+                --tw-backdrop-invert: ;
+                --tw-backdrop-opacity: ;
+                --tw-backdrop-saturate: ;
+                --tw-backdrop-sepia: ;
+            }
+            ::-webkit-backdrop {
+                --tw-border-spacing-x: 0;
+                --tw-border-spacing-y: 0;
+                --tw-translate-x: 0;
+                --tw-translate-y: 0;
+                --tw-rotate: 0;
+                --tw-skew-x: 0;
+                --tw-skew-y: 0;
+                --tw-scale-x: 1;
+                --tw-scale-y: 1;
+                --tw-pan-x: ;
+                --tw-pan-y: ;
+                --tw-pinch-zoom: ;
+                --tw-scroll-snap-strictness: proximity;
+                --tw-ordinal: ;
+                --tw-slashed-zero: ;
+                --tw-numeric-figure: ;
+                --tw-numeric-spacing: ;
+                --tw-numeric-fraction: ;
+                --tw-ring-inset: ;
+                --tw-ring-offset-width: 0px;
+                --tw-ring-offset-color: #fff;
+                --tw-ring-color: rgb(59 130 246/0.5);
+                --tw-ring-offset-shadow: 0 0 #0000;
+                --tw-ring-shadow: 0 0 #0000;
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                --tw-blur: ;
+                --tw-brightness: ;
+                --tw-contrast: ;
+                --tw-grayscale: ;
+                --tw-hue-rotate: ;
+                --tw-invert: ;
+                --tw-saturate: ;
+                --tw-sepia: ;
+                --tw-drop-shadow: ;
+                --tw-backdrop-blur: ;
+                --tw-backdrop-brightness: ;
+                --tw-backdrop-contrast: ;
+                --tw-backdrop-grayscale: ;
+                --tw-backdrop-hue-rotate: ;
+                --tw-backdrop-invert: ;
+                --tw-backdrop-opacity: ;
+                --tw-backdrop-saturate: ;
+                --tw-backdrop-sepia: ;
+            }
+            ::backdrop {
+                --tw-border-spacing-x: 0;
+                --tw-border-spacing-y: 0;
+                --tw-translate-x: 0;
+                --tw-translate-y: 0;
+                --tw-rotate: 0;
+                --tw-skew-x: 0;
+                --tw-skew-y: 0;
+                --tw-scale-x: 1;
+                --tw-scale-y: 1;
+                --tw-pan-x: ;
+                --tw-pan-y: ;
+                --tw-pinch-zoom: ;
+                --tw-scroll-snap-strictness: proximity;
+                --tw-ordinal: ;
+                --tw-slashed-zero: ;
+                --tw-numeric-figure: ;
+                --tw-numeric-spacing: ;
+                --tw-numeric-fraction: ;
+                --tw-ring-inset: ;
+                --tw-ring-offset-width: 0px;
+                --tw-ring-offset-color: #fff;
+                --tw-ring-color: rgb(59 130 246/0.5);
+                --tw-ring-offset-shadow: 0 0 #0000;
+                --tw-ring-shadow: 0 0 #0000;
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                --tw-blur: ;
+                --tw-brightness: ;
+                --tw-contrast: ;
+                --tw-grayscale: ;
+                --tw-hue-rotate: ;
+                --tw-invert: ;
+                --tw-saturate: ;
+                --tw-sepia: ;
+                --tw-drop-shadow: ;
+                --tw-backdrop-blur: ;
+                --tw-backdrop-brightness: ;
+                --tw-backdrop-contrast: ;
+                --tw-backdrop-grayscale: ;
+                --tw-backdrop-hue-rotate: ;
+                --tw-backdrop-invert: ;
+                --tw-backdrop-opacity: ;
+                --tw-backdrop-saturate: ;
+                --tw-backdrop-sepia: ;
+            }
+            .relative {
+                position: relative;
+            }
+            .mx-auto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .mt-6 {
+                margin-top: 1.5rem;
+            }
+            .flex {
+                display: flex;
+            }
+            .h-16 {
+                height: 4rem;
+            }
+            .h-6 {
+                height: 1.5rem;
+            }
+            .min-h-screen {
+                min-height: 100vh;
+            }
+            .w-auto {
+                width: auto;
+            }
+            .w-6 {
+                width: 1.5rem;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            .items-center {
+                align-items: center;
+            }
+            .justify-center {
+                justify-content: center;
+            }
+            .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+                --tw-space-x-reverse: 0;
+                margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+                margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+            }
+            .divide-y > :not([hidden]) ~ :not([hidden]) {
+                --tw-divide-y-reverse: 0;
+                border-top-width: calc(
+                    1px * calc(1 - var(--tw-divide-y-reverse))
+                );
+                border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+            }
+            .divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
+                --tw-divide-opacity: 1;
+                border-color: rgb(226 232 240 / var(--tw-divide-opacity));
+            }
+            .overflow-hidden {
+                overflow: hidden;
+            }
+            .bg-gray-100 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(247 250 252 / var(--tw-bg-opacity));
+            }
+            .py-6 {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+            .px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .py-8 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            .pt-10 {
+                padding-top: 2.5rem;
+            }
+            .pb-8 {
+                padding-bottom: 2rem;
+            }
+            .pt-8 {
+                padding-top: 2rem;
+            }
+            .text-base {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+            .text-sm {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+            }
+            .font-semibold {
+                font-weight: 600;
+            }
+            .font-bold {
+                font-weight: 700;
+            }
+            .leading-7 {
+                line-height: 1.75rem;
+            }
+            .text-gray-600 {
+                --tw-text-opacity: 1;
+                color: rgb(113 128 150 / var(--tw-text-opacity));
+            }
+            .text-gray-500 {
+                --tw-text-opacity: 1;
+                color: rgb(160 174 192 / var(--tw-text-opacity));
+            }
+            .text-red-500 {
+                --tw-text-opacity: 1;
+                color: rgb(249 50 44 / var(--tw-text-opacity));
+            }
+            .text-gray-900 {
+                --tw-text-opacity: 1;
+                color: rgb(26 32 44 / var(--tw-text-opacity));
+            }
+            .text-red-600 {
+                --tw-text-opacity: 1;
+                color: rgb(235 68 50 / var(--tw-text-opacity));
+            }
+            .shadow-xl {
+                --tw-shadow: 0 20px 25px -5px rgb(0 0 0/0.1),
+                    0 8px 10px -6px rgb(0 0 0/0.1);
+                --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+                    0 8px 10px -6px var(--tw-shadow-color);
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+                    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+            .ring-1 {
+                --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+                    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+                --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+                    calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+                box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+                    var(--tw-shadow, 0 0 #0000);
+            }
+            .ring-gray-900\/5 {
+                --tw-ring-color: rgb(26 32 44/0.05);
+            }
+            .hover\:text-red-600:hover {
+                --tw-text-opacity: 1;
+                color: rgb(235 68 50 / var(--tw-text-opacity));
+            }
+            @media (prefers-color-scheme: dark) {
+                .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+                    --tw-divide-opacity: 1;
+                    border-color: rgb(74 85 104 / var(--tw-divide-opacity));
+                }
+                .dark\:bg-gray-900 {
+                    --tw-bg-opacity: 1;
+                    background-color: rgb(26 32 44 / var(--tw-bg-opacity));
+                }
+                .dark\:bg-gray-800 {
+                    --tw-bg-opacity: 1;
+                    background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+                }
+                .dark\:text-gray-400 {
+                    --tw-text-opacity: 1;
+                    color: rgb(203 213 224 / var(--tw-text-opacity));
+                }
+                .dark\:text-gray-100 {
+                    --tw-text-opacity: 1;
+                    color: rgb(247 250 252 / var(--tw-text-opacity));
+                }
+            }
+            @media (min-width: 640px) {
+                .sm\:mx-auto {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .sm\:max-w-xl {
+                    max-width: 36rem;
+                }
+                .sm\:rounded-lg {
+                    border-radius: 0.5rem;
+                }
+                .sm\:py-12 {
+                    padding-top: 3rem;
+                    padding-bottom: 3rem;
+                }
+                .sm\:px-10 {
+                    padding-left: 2.5rem;
+                    padding-right: 2.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+        <div
+            class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-100 text-gray-600 dark:text-gray-400 dark:bg-gray-900 py-6 sm:py-12"
+        >
+            <div
+                class="relative bg-white dark:bg-gray-800 px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-xl sm:rounded-lg sm:px-10"
+            >
+                <div class="mx-auto">
+                    <div class="flex items-center justify-center space-x-6">
+                        <a href="https://coldbox.org">
+                            ColdBox Logo
+                        </a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-gray-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 4v16m8-8H4"
+                            />
+                        </svg>
+                        <a href="https://vitejs.dev">
+                            <svg
+                                viewBox="0 0 410 404"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-16 w-auto"
+                            >
+                                <path
+                                    d="M399.641 59.5246L215.643 388.545C211.844 395.338 202.084 395.378 198.228 388.618L10.5817 59.5563C6.38087 52.1896 12.6802 43.2665 21.0281 44.7586L205.223 77.6824C206.398 77.8924 207.601 77.8904 208.776 77.6763L389.119 44.8058C397.439 43.2894 403.768 52.1434 399.641 59.5246Z"
+                                    fill="url(#paint0_linear)"
+                                />
+                                <path
+                                    d="M292.965 1.5744L156.801 28.2552C154.563 28.6937 152.906 30.5903 152.771 32.8664L144.395 174.33C144.198 177.662 147.258 180.248 150.51 179.498L188.42 170.749C191.967 169.931 195.172 173.055 194.443 176.622L183.18 231.775C182.422 235.487 185.907 238.661 189.532 237.56L212.947 230.446C216.577 229.344 220.065 232.527 219.297 236.242L201.398 322.875C200.278 328.294 207.486 331.249 210.492 326.603L212.5 323.5L323.454 102.072C325.312 98.3645 322.108 94.137 318.036 94.9228L279.014 102.454C275.347 103.161 272.227 99.746 273.262 96.1583L298.731 7.86689C299.767 4.27314 296.636 0.855181 292.965 1.5744Z"
+                                    fill="url(#paint1_linear)"
+                                />
+                                <defs>
+                                    <linearGradient
+                                        id="paint0_linear"
+                                        x1="6.00017"
+                                        y1="32.9999"
+                                        x2="235"
+                                        y2="344"
+                                        gradientUnits="userSpaceOnUse"
+                                    >
+                                        <stop stop-color="#41D1FF" />
+                                        <stop offset="1" stop-color="#BD34FE" />
+                                    </linearGradient>
+                                    <linearGradient
+                                        id="paint1_linear"
+                                        x1="194.651"
+                                        y1="8.81818"
+                                        x2="236.076"
+                                        y2="292.989"
+                                        gradientUnits="userSpaceOnUse"
+                                    >
+                                        <stop stop-color="#FFEA83" />
+                                        <stop
+                                            offset="0.0833333"
+                                            stop-color="#FFDD35"
+                                        />
+                                        <stop offset="1" stop-color="#FFA800" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="divide-y divide-gray-300 dark:divide-gray-700">
+                        <div class="py-8 text-base leading-7">
+                            <p>
+                                This is the Vite development server that
+                                provides Hot Module Replacement for your ColdBox
+                                application.
+                            </p>
+                            <p class="mt-6">
+                                To access your ColdBox application, you will
+                                need to run a local development server.
+                            </p>
+                            <h2 class="mt-6">
+                                <a
+                                    href="https://coldbox.ortusbooks.com/getting-started/getting-started-guide"
+                                    class="font-semibold text-red-500 hover:text-red-600"
+                                    >CommandBox</a
+                                >
+                            </h2>
+                            <p>
+                                ColdBox's local development server powered by CommandBox
+                            </p>
+                        </div>
+                        <div class="pt-8 text-base leading-7">
+                            <p>
+                                Your ColdBox application's configured
+                                <code
+                                    class="text-sm font-bold text-gray-900 dark:text-gray-100"
+                                    >APP_URL</code
+                                >
+                                is:<br />
+                                <a
+                                    href="{{ APP_URL }}"
+                                    class="font-semibold text-red-500 hover:text-red-600"
+                                    >{{ APP_URL }}</a
+                                >
+                            </p>
+                            <p class="mt-6">
+                                Want more information on ColdBox's Vite integration?
+                            </p>
+                            <p>
+                                <a
+                                    href="https://laravel.com/docs/vite"
+                                    class="font-semibold text-red-500 hover:text-red-600"
+                                    >Read the docs &rarr;</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
